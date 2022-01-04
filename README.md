@@ -2,7 +2,7 @@
 
 `Randomer` is an OTP app that can return, at max 2, users with a random number of points. `Randomer` only has 1 endpoint which is the root `/` that will return an example data as follows:
 
-```json
+```
 > curl http://localhost:3000/
 
 {
