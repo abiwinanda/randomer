@@ -38,7 +38,7 @@ cd randomer
 
 2. Run `mix deps.get` to install all the required depencencies.
 
-3. You could start the dependency service, such as postgres, by running `docker-compose up -d`. This will run a postgres container which you could check by running `docker ps`. By default, postgres will run on port `5432`. If you want to change this port, you could change the host port in the docker-compose. If you prefer to use your locally installed postgres, you could skip this step.
+3. You could start the dependency service, such as postgres, by running `docker-compose up -d`. This will run a postgres container which you could check by running `docker ps`. By default, postgres will run on port `5432`. If you want to change this port, you could change the host port in the [docker-compose](https://github.com/abiwinanda/randomer/blob/master/docker-compose.yaml#L17). If you prefer to use your locally installed postgres, you could skip this step.
 
 4. Rename `.env.example` to `.env`.
 
@@ -64,4 +64,4 @@ To contribute to the project, you could fork the repo and open a PR from your fo
 
 ### Issues
 
-If you found any issues with the project, whether it is a bug or you are unable to run the application locally, do not hesitate to post the issues in the Issues tab.
+If you found any issues with the project, whether it is a bug or you are unable to run the application locally, do not hesitate to post the issues in the [Issues](https://github.com/abiwinanda/randomer/issues) tab.
