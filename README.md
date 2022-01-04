@@ -42,19 +42,19 @@ cd randomer
 
 4. Rename `.env.example` to `.env`.
 
-5. Run `source .env && mix ecto.setup` to initialize `Randomer` database. Running `ecto.setup` will also seed the database with one million user records hence it might need a little bit of time to run.
+5. Run `source .env && mix ecto.setup` to initialize `Randomer` database. Running `mix ecto.setup` will also seed the database with one million user records hence it might need a little bit of time to run.
 
-6. Finally you could run the server with iex by running `source .env && iex -S mix phx.server`. By default the server will run on
+6. Finally you could run the server with iex by running `source .env && iex -S mix phx.server`. By default the server will run on port `3000`
 
 ### Run Unit Test
 
 1. To run the project unit test you could run `source .env && mix test`.
 
-2. Optinally, you could run `--cover` flag to show the unit test coverage of the project.
+2. Optionally, you could use `--cover` flag to show the unit test coverage of the project.
 
 ## Usage
 
-Once you have the server running you could try to access `/` endpoint to see the API in action.
+Once you have the application running you could try to access `/` endpoint to see the API in action.
 
 ## Contribution
 
