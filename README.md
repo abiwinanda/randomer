@@ -54,7 +54,7 @@ cd randomer
 
 ## Usage
 
-Once you have the server running you try to access `/` endpoint to see the API in action.
+Once you have the server running you could try to access `/` endpoint to see the API in action.
 
 ## Contribution
 
