@@ -64,7 +64,6 @@ defmodule Randomer.Users do
     query =
       from u in User,
         where: u.points > ^max_number,
-        order_by: [desc: :points],
         limit: 2
 
     Repo.all(query)
