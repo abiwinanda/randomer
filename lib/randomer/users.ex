@@ -106,15 +106,15 @@ defmodule Randomer.Users do
   end
 
   @doc """
-  Updates all existing users points
+  Updates all existing users points randomly
 
   ## Examples
 
-    iex> update_all_users_points()
+    iex> update_all_users_points_randomly()
     {1000000, nil}
 
   """
-  def update_all_users_points() do
+  def update_all_users_points_randomly() do
     query =
       from u in User,
         update: [set: [points: fragment("floor(random()*100)"), updated_at: ^DateTime.utc_now()]]

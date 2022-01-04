@@ -44,7 +44,7 @@ defmodule Randomer.PointsUpdater do
   @impl true
   def handle_info(:update_points, state) do
     Logger.debug("Updating all users points")
-    Users.update_all_users_points()
+    Users.update_all_users_points_randomly()
 
     {:noreply, %PointsUpdater{state | max_number: Enum.random(0..100)}, {:continue, :loop}}
   end

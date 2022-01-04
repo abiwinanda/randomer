@@ -75,12 +75,12 @@ defmodule Randomer.UsersTest do
       assert user == Users.get_user!(user.id)
     end
 
-    test "update_all_users_points/0 should update all users point" do
+    test "update_all_users_points_randomly/0 should update all users point" do
       assert {:ok, _} = Users.create_user(%{points: 50})
       assert {:ok, _} = Users.create_user(%{points: 50})
       assert {:ok, _} = Users.create_user(%{points: 50})
 
-      assert {3, _} = Users.update_all_users_points()
+      assert {3, _} = Users.update_all_users_points_randomly()
     end
 
     test "delete_user/1 deletes the user" do
