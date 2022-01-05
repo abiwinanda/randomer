@@ -44,7 +44,7 @@ defmodule Randomer.PointsUpdater do
   @impl true
   def handle_info(:update_points, state) do
     Logger.debug("Updating all users points")
-    Users.update_all_users_points_randomly()
+    Task.start_link(fn -> Users.update_all_users_points_randomly() end)
 
     {:noreply, %PointsUpdater{state | max_number: Enum.random(0..100)}, {:continue, :loop}}
   end
@@ -82,13 +82,14 @@ defmodule Randomer.PointsUpdater do
     try do
       {:ok, GenServer.call(__MODULE__, :query_user)}
     catch
-      # In case user is calling this API during the database update, the database
-      # might not be able to respond properly or in time hence retry will be done
+      # When the the GenServer is busy, it might not be able to respond in time
+      # hence :exit error will be returned and retry will be performed
       :exit, _ ->
+        Logger.debug("Fail to query users. Retrying...")
         query_users(retry - 1)
 
       e ->
-        Logger.debug("Fail to query users: #{e}")
+        Logger.error("Fail to query users: #{e}")
         {:error, :error}
     end
   end
@@ -98,10 +99,11 @@ defmodule Randomer.PointsUpdater do
       {:ok, GenServer.call(__MODULE__, :query_user)}
     catch
       :exit, _ ->
+        Logger.error("Fail to query users: :timeout")
         {:error, :exit}
 
       e ->
-        Logger.debug("Fail to query users: #{e}")
+        Logger.error("Fail to query users: #{e}")
         {:error, :error}
     end
   end
